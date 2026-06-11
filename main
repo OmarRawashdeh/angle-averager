@@ -1,0 +1,45 @@
+import math
+
+angles = []
+sin_values = []
+cos_values = []
+
+angle = 0
+sin_value = 0
+sin_value_total = 0
+cos_value = 0
+cos_value_total = 0
+sin_average = 0
+average_angle = 0
+
+number_of_angles = input("How many angles do you want averaged: ")
+if (int(number_of_angles) < 1 and not isinstance(int(number_of_angles), int)):
+    print("Invalid number")
+
+for i in range(int(number_of_angles)):
+    if (i == 0):
+        angle = input("1st number: ")
+    elif (i == 1):
+        angle = input("2nd number: ")
+    elif (i == 2):
+        angle = input("3rd number: ")
+    else:
+        angle = input(f"{str(i+1)}th number: ")
+
+    sin_value = math.sin(math.radians(int(angle)))
+    cos_value = math.cos(math.radians(int(angle)))
+    
+    sin_value_total += sin_value
+    cos_value_total += cos_value
+
+    angles.append(int(angle))
+    sin_values.append(sin_value)
+    cos_values.append(cos_value)
+
+# print(f"{angles}\n{cos_values}\n{sin_values}")
+
+sin_average = sin_value_total / int(number_of_angles)
+cos_average = cos_value_total / int(number_of_angles)
+
+average_angle = math.degrees(math.atan2(sin_average,cos_average))
+print(round(average_angle,1))
