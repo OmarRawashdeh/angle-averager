@@ -4,15 +4,9 @@ angles = []
 sin_values = []
 cos_values = []
 
-angle = 0
-sin_value = 0
 sin_value_total = 0
-cos_value = 0
 cos_value_total = 0
-sin_average = 0
-average_angle = 0
-mag_sin_value_total = 0
-mag_cos_value_total = 0 
+
 
 number_of_angles = input("How many angles do you want averaged: ")
 if (int(number_of_angles) < 1 and not isinstance(int(number_of_angles), int)):
@@ -30,13 +24,9 @@ for i in range(int(number_of_angles)):
     magnitude = input("magnitude? ")
     sin_value = math.sin(math.radians(int(angle)))
     cos_value = math.cos(math.radians(int(angle)))
-    mag_sin_value = sin_value * float(magnitude)
-    mag_cos_value = cos_value * float(magnitude)
     
     sin_value_total += sin_value * float(magnitude)
     cos_value_total += cos_value * float(magnitude)
-    mag_sin_value_total += mag_sin_value
-    mag_cos_value_total += mag_cos_value
 
     angles.append(int(angle))
     sin_values.append(sin_value)
@@ -46,7 +36,7 @@ for i in range(int(number_of_angles)):
 
 sin_average = sin_value_total / int(number_of_angles)
 cos_average = cos_value_total / int(number_of_angles)
-final_magnitude = math.hypot(mag_sin_value_total, mag_cos_value_total)
+final_magnitude = math.hypot(sin_value_total, cos_value_total)
 
 average_angle = math.degrees(math.atan2(sin_average,cos_average))
-print(f"Angle: {average_angle:.1f}, Magnitude: {final_magnitude:.0f}")
+print(f"Angle: {average_angle:.1f}, Magnitude: {final_magnitude:.2f}")
