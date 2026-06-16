@@ -30,11 +30,11 @@ for i in range(int(number_of_angles)):
     magnitude = input("magnitude? ")
     sin_value = math.sin(math.radians(int(angle)))
     cos_value = math.cos(math.radians(int(angle)))
-    mag_sin_value = sin_value * int(magnitude)
-    mag_cos_value = cos_value * int(magnitude)
+    mag_sin_value = sin_value * float(magnitude)
+    mag_cos_value = cos_value * float(magnitude)
     
-    sin_value_total += sin_value * int(magnitude)
-    cos_value_total += cos_value * int(magnitude)
+    sin_value_total += sin_value * float(magnitude)
+    cos_value_total += cos_value * float(magnitude)
     mag_sin_value_total += mag_sin_value
     mag_cos_value_total += mag_cos_value
 
